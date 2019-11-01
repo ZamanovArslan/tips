@@ -21,6 +21,7 @@ end
 
 # views
 gem "active_link_to"
+gem 'bootstrap'
 gem "inky-rb", require: "inky"
 gem "meta-tags"
 gem "simple_form"

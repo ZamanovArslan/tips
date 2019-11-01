@@ -1,2 +1,9 @@
 @import "core/all";
 @import "components/all";
+@import "views/all";
+@import 'foundation-icons';
+
+.row{
+  max-width: rem-calc(1200);
+}
+

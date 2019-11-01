@@ -10,10 +10,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20100713113845) do
+ActiveRecord::Schema.define(version: 20191101134320) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "experiences", force: :cascade do |t|
+    t.integer "experience"
+    t.text "experience_ext"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.bigint "life_area_id"
+    t.index ["life_area_id"], name: "index_experiences_on_life_area_id"
+    t.index ["user_id"], name: "index_experiences_on_user_id"
+  end
+
+  create_table "life_areas", force: :cascade do |t|
+    t.string "value", null: false
+    t.string "en_value", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tips", force: :cascade do |t|
+    t.string "title", null: false
+    t.boolean "anonym", default: false
+    t.text "description"
+    t.integer "experience"
+    t.text "experience_ext"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.bigint "life_area_id"
+    t.index ["life_area_id"], name: "index_tips_on_life_area_id"
+    t.index ["user_id"], name: "index_tips_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -42,4 +74,8 @@ ActiveRecord::Schema.define(version: 20100713113845) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
+  add_foreign_key "experiences", "life_areas"
+  add_foreign_key "experiences", "users"
+  add_foreign_key "tips", "life_areas"
+  add_foreign_key "tips", "users"
 end

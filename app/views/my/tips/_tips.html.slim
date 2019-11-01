@@ -1,0 +1,13 @@
+- tips.each do |tip|
+  .card.card-1
+    - if tip.anonym
+      .tip__anonym
+        i.fi-torsos-male-female
+
+    .tip__title = tip.title
+    = link_to my_tip_path(tip), method: :delete, data: { confirm: 'Are you sure?' } do
+      .tip__delete
+          i.fi-x
+
+    .tip__description = tip.description
+

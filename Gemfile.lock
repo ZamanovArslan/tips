@@ -66,6 +66,10 @@ GEM
       execjs (~> 2.0)
     bcrypt (3.1.13)
     bindex (0.5.0)
+    bootstrap (4.0.0.beta)
+      autoprefixer-rails (>= 6.0.3)
+      popper_js (~> 1.11.1)
+      sass (>= 3.4.19)
     brakeman (3.7.0)
     builder (3.2.3)
     bullet (5.6.1)
@@ -244,6 +248,7 @@ GEM
       capybara (>= 2.1, < 4)
       cliver (~> 0.3.1)
       websocket-driver (>= 0.2.0)
+    popper_js (1.11.1)
     powerpack (0.1.1)
     premailer (1.9.2)
       css_parser (>= 1.4.8)
@@ -439,6 +444,7 @@ DEPENDENCIES
   active_link_to
   autoprefixer-rails
   awesome_print
+  bootstrap
   brakeman
   bullet
   bundler-audit

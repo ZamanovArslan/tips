@@ -1,0 +1,8 @@
+- experiences.each do |experience|
+  .card.card-1
+    .experience_ = experience.experience
+    .experience__ext = experience.experience_ext
+    = link_to my_experience_path(experience), method: :delete, data: { confirm: 'Are you sure?' } do
+      .experience__delete
+        i.fi-x
+

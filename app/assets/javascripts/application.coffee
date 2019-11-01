@@ -6,6 +6,8 @@
 #
 #= require jquery2
 #= require jquery-ujs
+#= require popper
+#= require bootstrap
 #= require foundation
 #= require current_user
 #= require_tree ../templates
