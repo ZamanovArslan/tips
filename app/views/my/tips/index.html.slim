@@ -1,10 +1,11 @@
-.row
+.row.align-center
   .medium-4.columns
     h3
       .tips__title Add tip
     = render "form"
-  .medium-7.columns
+  .medium-6.columns.medium-offset-1
     h3
       .tips__title My tips
     .tips__grid
-      = render "tips"
+      = render tips
+  .medium-1.columns

@@ -1,0 +1,20 @@
+.card.card-1
+  .tip__title = link_to tip.title, my_tip_path(tip)
+
+  .tip__description = tip.description
+  .tip__views
+    .float-right.text-right
+      - if tip.anonym
+        .tip__anonym
+          i.fi-torsos-male-female
+          | Anon
+      - else
+        = tip.user.full_name
+      i.fi-eye
+      = tip.impressionist_count
+      .tip__date = tip.created_at
+    .tip__life_area
+      strong = tip.life_area.en_value
+
+
+

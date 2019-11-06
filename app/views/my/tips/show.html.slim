@@ -1,2 +1,10 @@
-h2 = tip.title
-h4 = tip.description
+.row
+  h3 = tip.title
+  h4 = tip.description
+  - if tip.anonym
+    .tip__anonym
+      i.fi-torsos-male-female
+  h4 = tip.experience
+  h4 = tip.experience_ext
+  h4 = tip.life_area_id
+

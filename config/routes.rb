@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     resources :tips
   end
 
+  resources :tip, only: %i(show index)
+
   namespace :my do
     resources :experiences
   end

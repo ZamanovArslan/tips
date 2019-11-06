@@ -35,6 +35,7 @@ gem "draper"
 gem "flamegraph"
 gem "google-analytics-rails"
 gem "health_check"
+gem 'impressionist'
 gem "interactor"
 gem "kaminari"
 gem "memory_profiler"
