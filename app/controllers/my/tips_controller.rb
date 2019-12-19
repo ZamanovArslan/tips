@@ -1,11 +1,9 @@
 module My
   class TipsController < ApplicationController
-    impressionist action: :show
-
     before_action :authenticate_user!
 
     expose :tip
-    expose :tips, ->{ current_user.tips.order(created_at: :desc).decorate }
+    expose :tips, ->{ current_user.tips.order(created_at: :desc).page(params[:page]).decorate }
     expose :life_areas, ->{ LifeArea.all.order(created_at: :desc).pluck(:en_value, :id) }
 
     def create

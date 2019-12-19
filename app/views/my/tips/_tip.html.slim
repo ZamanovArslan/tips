@@ -1,5 +1,5 @@
 .card.card-1
-  .tip__title = link_to tip.title, my_tip_path(tip)
+  .tip__title = link_to tip.title, tip_path(tip)
   = link_to my_tip_path(tip), method: :delete, data: { confirm: 'Are you sure?' }, class: "tip__delete" do
       i.fi-x
   .tip__description = tip.description
