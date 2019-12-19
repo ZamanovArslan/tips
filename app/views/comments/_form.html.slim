@@ -1,0 +1,5 @@
+= simple_form_for([tip, tip.comments.build]) do |f|
+  .form-inputs
+    = f.input :text
+  .form-actions
+    = f.button :submit, "Add comment"

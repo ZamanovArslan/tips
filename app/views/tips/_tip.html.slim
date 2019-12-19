@@ -1,5 +1,5 @@
 .card.card-1
-  .tip__title = link_to tip.title, my_tip_path(tip)
+  .tip__title = link_to tip.title, tip_path(tip)
 
   .tip__description = tip.description
   .tip__views
@@ -15,6 +15,7 @@
       .tip__date = tip.created_at
     .tip__life_area
       strong = tip.life_area.en_value
-
-
-
+  .tip__like class="#{"unliked" unless tip.liked? current_user}" data={"id": tip.id}
+    = link_to "", api_v1_tip_likes_path(tip), method: :patch, remote: true, class: "fi-like"
+    span class="likes-count"
+      = tip.likes.count

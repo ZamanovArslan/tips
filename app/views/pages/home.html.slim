@@ -1,13 +1,26 @@
-.row
+.row.expanded
   h2
     = title("Home")
-  h3 Popular tips
   .columns.medium-3
+    h4.home__top-title Popular tips by year
+    = render popular_tips_by_year
+    h4.home__top-title Popular tips by month
     = render popular_tips_by_month
+
   .columns.medium-3
-    = render popular_tips_by_month
+    h4.home__top-title Popular tips by everytime
+    = render popular_tips_by_everytime
+
   .columns.medium-3
-    = render popular_tips_by_month
+    h4.home__top-title Most liked tips
+    = render most_liked_tips
+
   .columns.medium-3
-    = render popular_tips_by_month
+    h4.home__top-title Top life area by today
+    = render tips_by_popular_life_area
+    - if discussed_tip_today
+      h4.home__top-title Discussed Today
+      = render discussed_tip_today
+
+
 

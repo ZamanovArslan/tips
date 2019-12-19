@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   has_many :tips
   has_many :experiences
+  has_many :comments
 end
