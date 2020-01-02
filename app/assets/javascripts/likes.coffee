@@ -4,11 +4,9 @@ $(document).on 'ajax:success', 'a.fi-like', (status,data,xhr)->
 
   for like in likes
     if $(like).text() < data.count
-       $(like).removeClass("unliked")
+      $(like).removeClass("unliked")
     else
       $(like).addClass("unliked")
 
   for like_count in like_counts
     $(like_count).text data.count
-
-

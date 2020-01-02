@@ -6,8 +6,8 @@ Rails.application.routes.draw do
     resources :tips
   end
 
-  resources :tips, only: %i(show index) do
-    resources :comments, only: %i(create)
+  resources :tips, only: %i[show index] do
+    resources :comments, only: %i[create]
   end
 
   namespace :api, defaults: { format: :json } do

@@ -21,5 +21,4 @@ class OrderedQuery
               .order("COUNT(#{rate_by}.id) DESC")
     end
   end
-
 end

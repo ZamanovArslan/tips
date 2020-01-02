@@ -1,5 +1,4 @@
 class HomepageController < ApplicationController
-
   def index
     render "pages/home"
   end
@@ -31,5 +30,5 @@ class HomepageController < ApplicationController
   end
 
   helper_method :popular_tips_by_month, :popular_tips_by_everytime, :popular_tips_by_year, :tips_by_popular_life_area,
-                :discussed_tip_today, :most_liked_tips
+    :discussed_tip_today, :most_liked_tips
 end

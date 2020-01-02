@@ -1,7 +1,7 @@
 require "csv"
 
 namespace :life_areas do
-  FILE_PATH = "db/seeds/life_areas.csv"
+  FILE_PATH = "db/seeds/life_areas.csv".freeze
 
   desc "Parse list of life areas"
   task parse: :environment do

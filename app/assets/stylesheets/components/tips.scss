@@ -1,51 +1,51 @@
-.tip__title{
+.tip__title {
   max-width: 90%;
   font-weight: bold;
   font-size: rem-calc(20);
   display: inline-flex;
 }
-.tips__grid{
+.tips__grid {
   columns: 2 300px;
 }
-.tips__title{
+.tips__title {
   font-weight: bold;
 }
-.tip__description{
+.tip__description {
 
 }
-.tip__delete{
+.tip__delete {
   float: right;
   display: inline-block;
   font-size: rem-calc(15);
   color: #bdc3c7;
 }
-.tip__anonym{
+.tip__anonym {
   display:inline-flex;
   font-size: rem-calc(15);
   padding-right: 5px;
 }
-.tip__views{
+.tip__views {
   font-weight: normal;
   line-height: 1.4;
   color: #8a8a8a;
-  i {
+  i  {
     margin: 0 5px
   }
 }
-.tip__life_area{
+.tip__life_area {
   bottom: .5rem;
   position: absolute;
 }
-.tips__paginations{
+.tips__paginations {
   margin: 0 auto;
   width: intrinsic;
 }
-.home__top-title{
+.home__top-title {
   margin-left: 0.5rem;
 }
-.unliked a{
+.unliked a {
   color: #cecece;
 }
-.likes-count{
+.likes-count {
   margin-left: 5px;
 }
