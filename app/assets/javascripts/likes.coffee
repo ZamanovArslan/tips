@@ -1,6 +1,6 @@
 $(document).on 'ajax:success', 'a.fi-like', (status,data,xhr)->
-  like_counts = $(".tip__like[data-id=#{data.id}] span.likes-count")
-  likes = $(".tip__like[data-id=#{data.id}]")
+  like_counts = $(".tip-like[data-id=#{data.id}] span.likes-count")
+  likes = $(".tip-like[data-id=#{data.id}]")
 
   for like in likes
     if $(like).text() < data.count
