@@ -5,6 +5,6 @@ FactoryGirl.define do
     description { Faker::Lorem.paragraphs(number: 1).first }
     created_at { Faker::Date.between(from: 2.month.ago, to: Date.today) }
     experience { rand(10) }
-    life_area_id { rand(17) + 1 }
+    life_area { LifeArea.order('RANDOM()').first }
   end
 end

@@ -1,17 +1,17 @@
-class Api::V1::Tips::LikesController < ApplicationController
-  before_action :authenticate_user!
+class Api::V1
+  module Tips
+    class LikesController < ApplicationController
+      before_action :authenticate_user!
+      expose :tip
 
-  expose :tip
-
-  def update
-    user_like.persisted? ? user_like.destroy : user_like.save
-
-    render json: { count: tip.likes.count, id: tip.id }
-  end
-
-  private
-
-  def user_like
-    @user_like = Like.find_or_initialize_by(user_id: current_user.id, tip_id: tip.id)
+      def update
+        result = UpdateLike.call(user: current_user, tip: tip)
+        if result.success?
+          render json: { count: result.likes_count, id: result.tip_id }
+        else
+          render json: result.errors, status: 422
+        end
+      end
+    end
   end
 end

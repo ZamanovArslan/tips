@@ -1,8 +1,17 @@
+require 'active_support'
 class HomepageController < ApplicationController
+  expose :popular_tips_by_month, decorate: ->(tips){ TipDecorator.new(tips) }
+  expose :popular_tips_by_everytime, decorate: ->(tips){ TipDecorator.new(tips) }
+  expose :popular_tips_by_year, decorate: ->(tips){ TipDecorator.new(tips) }
+  expose :tips_by_popular_life_area, decorate: ->(tips){ TipDecorator.new(tips) }
+  expose :discussed_tip_today, decorate: ->(tips){ TipDecorator.new(tips) }
+  expose :most_liked_tips, decorate: ->(tips){ TipDecorator.new(tips) }
 
   def index
     render "pages/home"
   end
+
+  private
 
   def popular_tips_by_month
     @popular_tips_by_month ||= ::OrderedQuery.new(:views, Tip.by_last_month).limit(2).decorate
@@ -29,7 +38,4 @@ class HomepageController < ApplicationController
   def most_liked_tips
     @most_liked_tips ||= ::OrderedQuery.new(:likes, Tip.all).limit(5).decorate
   end
-
-  helper_method :popular_tips_by_month, :popular_tips_by_everytime, :popular_tips_by_year, :tips_by_popular_life_area,
-                :discussed_tip_today, :most_liked_tips
 end

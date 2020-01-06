@@ -2,7 +2,7 @@
   h2
     = title("Home")
   .columns.medium-3
-    h4.home__top-title Popular tips by year
+    h4.home__top-title t()
     = render popular_tips_by_year
     h4.home__top-title Popular tips by month
     = render popular_tips_by_month
@@ -21,6 +21,3 @@
     - if discussed_tip_today
       h4.home__top-title Discussed Today
       = render discussed_tip_today
-
-
-

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: "users/registrations" }
   root to: "homepage#index"
+  get :contact_us, to: "pages#contact_us"
 
   namespace :my do
     resources :tips

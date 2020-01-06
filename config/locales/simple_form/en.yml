@@ -1,0 +1,38 @@
+en:
+  simple_form:
+    'yes': Yes
+    'no': No
+    required:
+      text: required
+      mark: '*'
+      # You can uncomment the line below if you need to overwrite the whole required html.
+      # When using html, text and mark won't be used.
+      # html: '<abbr title="required">*</abbr>'
+    error_notification:
+      default_message: 'Please review the problems below:'
+
+    placeholders:
+      tip:
+        title: You can use your sock if toilet paper is ended
+        description: When I were young ...
+        experience: 31
+        experience_ext: I'm living here already 31 years and know what I'm talking about
+      experience:
+        experience: 31
+        experience_ext: I'm living here already 31 years and know what I'm talking about
+    hints:
+      tip:
+        title: Something that you want share with people
+        description: Describe why you advicing that ant how it happeneds
+        experience: How many years you are in this area?
+        experience_ext: Tell your readers something more about your experience
+      experience:
+        experience: How many years you are in this area?
+        experience_ext: Tell your readers something more about your experience
+
+    labels:
+      tip:
+        experience_ext: Experience extended
+        anonym: Post as anonym?
+      experience:
+        experience_ext: Experience extended
