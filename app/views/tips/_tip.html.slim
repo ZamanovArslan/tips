@@ -1,21 +1,21 @@
 .card.card-1
-  .tip__title = link_to tip.title, tip_path(tip)
+  .tip-title = link_to tip.title, tip_path(tip)
 
-  .tip__description = tip.description
-  .tip__views
+  .tip-description = tip.description
+  .tip-views
     .float-right.text-right
       - if tip.anonym
-        .tip__anonym
+        .tip-anonym
           i.fi-torsos-male-female
           | Anon
       - else
         = tip.user.full_name
       i.fi-eye
       = tip.impressionist_count
-      .tip__date = tip.created_at
-    .tip__life_area
+      .tip-date = tip.created_at
+    .tip-life_area
       strong = tip.life_area.en_value
-  .tip__like class="#{"unliked" unless tip.liked? current_user}" data={"id": tip.id}
+  .tip-like class="#{"unliked" unless tip.liked? current_user}" data={"id": tip.id}
     = link_to "", api_v1_tip_likes_path(tip), method: :patch, remote: true, class: "fi-like"
     span class="likes-count"
       = tip.likes.count

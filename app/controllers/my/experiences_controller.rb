@@ -3,8 +3,8 @@ module My
     before_action :authenticate_user!
 
     expose :experience
-    expose :experiences, ->{ current_user.experiences }
-    expose :life_areas, ->{ LifeArea.all.order(created_at: :desc).pluck(:en_value, :id) }
+    expose :experiences, -> { current_user.experiences }
+    expose :life_areas, -> { LifeArea.all.order(created_at: :desc).pluck(:en_value, :id) }
 
     def create
       if experience.save
@@ -23,7 +23,7 @@ module My
 
     def experience_params
       params.require(:experience).permit(:experience, :experience_ext, :life_area_id)
-                                 .merge(user_id: current_user.id)
+            .merge(user_id: current_user.id)
     end
   end
 end

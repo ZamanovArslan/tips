@@ -3,8 +3,8 @@ module My
     before_action :authenticate_user!
 
     expose :tip
-    expose :tips, ->{ current_user.tips.order(created_at: :desc).page(params[:page]).decorate }
-    expose :life_areas, ->{ LifeArea.all.order(created_at: :desc).pluck(:en_value, :id) }
+    expose :tips, -> { current_user.tips.order(created_at: :desc).page(params[:page]).decorate }
+    expose :life_areas, -> { LifeArea.all.order(created_at: :desc).pluck(:en_value, :id) }
 
     def create
       if tip.save
@@ -23,7 +23,7 @@ module My
 
     def tip_params
       params.require(:tip).permit(:title, :anonym, :description, :expertise, :expertise_ext, :life_area_id)
-                          .merge(user_id: current_user.id)
+            .merge(user_id: current_user.id)
     end
   end
 end

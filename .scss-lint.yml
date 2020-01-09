@@ -9,6 +9,9 @@ linters:
   StringQuotes:
     style: double_quotes
 
+  ColorVariable:
+    enabled: false
+    
   PropertySortOrder:
     order:
       - display

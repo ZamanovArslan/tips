@@ -21,7 +21,7 @@ end
 
 # views
 gem "active_link_to"
-gem 'bootstrap'
+gem "bootstrap"
 gem "inky-rb", require: "inky"
 gem "meta-tags"
 gem "simple_form"
@@ -35,7 +35,7 @@ gem "draper"
 gem "flamegraph"
 gem "google-analytics-rails"
 gem "health_check"
-gem 'impressionist'
+gem "impressionist"
 gem "interactor"
 gem "kaminari"
 gem "memory_profiler"
