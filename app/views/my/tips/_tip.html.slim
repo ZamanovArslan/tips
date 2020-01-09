@@ -1,9 +1,9 @@
 .card.card-1
-  .tip__title = link_to tip.title, tip_path(tip)
-  = link_to my_tip_path(tip), method: :delete, data: { confirm: 'Are you sure?' }, class: "tip__delete" do
-      i.fi-trash
-  .tip__description = tip.description
-  .tip__views
+  .tip-title = link_to tip.title, tip_path(tip)
+  = link_to my_tip_path(tip), method: :delete, data: { confirm: 'Are you sure?' }, class: "tip-delete" do
+    i.fi-trash
+  .tip-description = tip.description
+  .tip-views
     .float-right.text-right
       - if tip.anonym
         .tip__anonym

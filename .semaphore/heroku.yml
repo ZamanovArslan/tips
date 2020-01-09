@@ -9,7 +9,10 @@ blocks:
   - name: Deploy
     task:
       secrets:
-        - name: rails-base-secrets
+        - name: tips-heroku
+      env_vars:
+        - name: HEROKU_REMOTE
+          value: https://git.heroku.com/tips-on-everyday.git
 
       prologue:
         commands:
@@ -27,5 +30,5 @@ blocks:
       jobs:
         - name: Deploy to Production
           commands:
-            - git remote add heroku https://git.heroku.com/fs-rails-base.git
+            - git remote add heroku $HEROKU_REMOTE
             - git push heroku -f $SEMAPHORE_GIT_BRANCH:master

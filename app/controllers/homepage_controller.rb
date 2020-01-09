@@ -1,4 +1,5 @@
 require 'active_support'
+
 class HomepageController < ApplicationController
   expose :popular_tips_by_month, decorate: ->(tips){ TipDecorator.new(tips) }
   expose :popular_tips_by_everytime, decorate: ->(tips){ TipDecorator.new(tips) }
@@ -14,28 +15,28 @@ class HomepageController < ApplicationController
   private
 
   def popular_tips_by_month
-    @popular_tips_by_month ||= ::OrderedQuery.new(:views, Tip.by_last_month).limit(2).decorate
+    @popular_tips_by_month ||= ::OrderedQuery.new(:views, Tip.by_last_month).limit(2)
   end
 
   def popular_tips_by_everytime
-    @popular_tips_by_everytime ||= ::OrderedQuery.new(:views, Tip.all).limit(3).decorate
+    @popular_tips_by_everytime ||= ::OrderedQuery.new(:views, Tip.all).limit(3)
   end
 
   def popular_tips_by_year
-    @popular_tips_by_year ||= ::OrderedQuery.new(:views, Tip.by_last_year).limit(3).decorate
+    @popular_tips_by_year ||= ::OrderedQuery.new(:views, Tip.by_last_year).limit(3)
   end
 
   def tips_by_popular_life_area
     top_life_area = ::OrderedQuery.new(:views, LifeArea.all).first
 
-    @tips_by_popular_life_area ||= Tip.limit(2).where(life_area: top_life_area).order(created_at: :desc).decorate
+    @tips_by_popular_life_area ||= Tip.limit(2).where(life_area: top_life_area).order(created_at: :desc)
   end
 
   def discussed_tip_today
-    @discussed_tip_today ||= ::OrderedQuery.new(:comments, Tip.by_today).first&.decorate
+    @discussed_tip_today ||= ::OrderedQuery.new(:comments, Tip.by_today).first&
   end
 
   def most_liked_tips
-    @most_liked_tips ||= ::OrderedQuery.new(:likes, Tip.all).limit(5).decorate
+    @most_liked_tips ||= ::OrderedQuery.new(:likes, Tip.all).limit(5)
   end
 end
