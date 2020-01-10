@@ -1,6 +1,7 @@
 .top-bar-left
   ul.menu
+    = active_link_to t("navigation.home"), root_path, active: :exclusive, wrap_tag: :li
     - if user_signed_in?
-      = active_link_to "Home", root_path, active: :exclusive, wrap_tag: :li
-      = active_link_to "My tips", my_tips_path, active: :exclusive, wrap_tag: :li
-      = active_link_to "My experience", my_experiences_path, active: :exclusive, wrap_tag: :li
+      = active_link_to t("navigation.my_tips"), my_tips_path, active: :exclusive, wrap_tag: :li
+      = active_link_to t("navigation.my_experiences"), my_experiences_path, active: :exclusive, wrap_tag: :li
+    = active_link_to t("navigation.contact_us"), contact_us_path, active: :exclusive, wrap_tag: :li

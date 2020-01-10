@@ -1,0 +1,32 @@
+en:
+  simple_form:
+    'yes': Да
+    'no': Нет
+    error_notification:
+      default_message: Пожалуйста, исправьте ошибки ниже
+
+    placeholders:
+      tip:
+        title: Делай всегда разминку перед упражнениями
+        description: В универе я перед началом матча не размялся и ...
+        experience: 5
+        experience_ext: С детства играю в футбол
+      experience:
+        experience: 5
+        experience_ext: С детства играю в футбол
+    hints:
+      tip:
+        title: Что-нибудь чем вы можете поделиться с другими людьми
+        description: Опишите что случилось и почему советуете
+        experience: Как много лет вы посвятили этому?
+        experience_ext: Расскажите подробнее о вашем опыте
+      experience:
+        experience: Как много лет вы посвятили этому?
+        experience_ext: Расскажите подробнее о вашем опыте
+
+    labels:
+      tip:
+        experience_ext: Подробнее
+        anonym: Анонимно?
+      experience:
+        experience_ext: Подробнее

@@ -2,13 +2,10 @@
 
   = f.input :life_area_id, collection: life_areas, selected: life_areas.size
 
-  = f.input :experience, as: :integer, placeholder: "31",
-            hint: "How many years you are in this area?", required: true
+  = f.input :experience, as: :integer, required: true
 
-  = f.input :experience_ext, placeholder: "I'm living here already 31 years and know what I'm talking about",
-            hint: "Tell your readers something more about your experience",
-            label: "Experience extended"
+  = f.input :experience_ext
 
   .form-actions
-    = f.button :submit, "Add"
+    = f.button :submit
 
