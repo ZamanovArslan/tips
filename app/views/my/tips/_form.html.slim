@@ -2,15 +2,10 @@
 
   .form-inputs
     = f.input :title
-
     = f.input :description
-
     = f.input :life_area_id, collection: life_areas, selected: life_areas.count
-
     = f.input :experience, as: :integer
-
     = f.input :experience_ext
-
     = f.input :anonym, as: :boolean
 
   .form-actions

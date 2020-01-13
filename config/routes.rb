@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root to: "homepage#index"
   get :contact_us, to: "pages#contact_us"
 
+  resources :feedbacks, only: %i[create]
+
   namespace :my do
     resources :tips
   end
