@@ -2,11 +2,11 @@ class FeedbacksController < ApplicationController
   expose :feedback
 
   def create
-    if feedback.create
+    if feedback.save
       FeedbackMailer.feedback(feedback_params).deliver
-      redirect_to :contact_us_path, message: "Your email successful sent"
+      redirect_to :contact_us, flash: { success: "Your feedback successful sent" }
     else
-      redirect_to :contact_us_path, error: feedback.errors
+      redirect_to :contact_us, flash: { alert: feedback.errors }
     end
   end
 

@@ -1,15 +1,14 @@
 .row
-  = title("Contact us")
+  h3 = title("Contact us")
 
-= simple_form_for :feedback, url: feedback_path, method: :post do |f|
+  = simple_form_for feedback, url: feedbacks_path, method: :post do |f|
+    .form-inputs
+      = f.input :email, as: :email
+      = f.input :title, as: :string
+      = f.input :message, as: :text, required: true
 
-  .form-inputs
-    = f.input :email, as: :email
-    = f.input :title, as: :string
-    = f.input :message, as: :text, required: true
-
-  .form-actions
-    = f.button :submit
+    .form-actions
+      = f.button :submit
 
 
 

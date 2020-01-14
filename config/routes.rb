@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   namespace :my do
     resources :tips
+    resources :experiences
   end
 
   resources :tips, only: %i[show index] do
@@ -19,9 +20,5 @@ Rails.application.routes.draw do
         patch "/likes", to: "tips/likes#update", module: :tips
       end
     end
-  end
-
-  namespace :my do
-    resources :experiences
   end
 end
