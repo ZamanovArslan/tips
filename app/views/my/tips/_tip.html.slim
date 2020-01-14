@@ -2,20 +2,25 @@
   .tip-title = link_to tip.title, tip_path(tip)
   = link_to my_tip_path(tip), method: :delete, data: { confirm: 'Are you sure?' }, class: "tip-delete" do
     i.fi-trash
+
   .tip-description = tip.description
-  .tip-views
-    .float-right.text-right
-      - if tip.anonym
-        .tip__anonym
-          i.fi-torsos-male-female
-          | Anon
-      - else
-        = tip.user.full_name
-      i.fi-eye
-      = tip.impressionist_count
-      .tip__date = tip.created_at
-    .tip__life_area
-      strong = tip.life_area.en_value
+
+  .row
+    .columns.small-4.align-bottom
+      .tip-life_area
+        strong = tip.life_area.en_value
+    .columns.small-8
+      .tip-views.text-right
+        .tip-anonym
+          - if tip.anonym
+              i.fi-torsos-male-female
+              | Anon
+          - else
+            = tip.user.full_name
+        i.fi-eye
+        = tip.impressionist_count
+        .tip-date = tip.created_at
+
 
 
 

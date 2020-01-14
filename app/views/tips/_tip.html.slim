@@ -2,20 +2,26 @@
   .tip-title = link_to tip.title, tip_path(tip)
 
   .tip-description = tip.description
-  .tip-views
-    .float-right.text-right
-      - if tip.anonym
+
+  .row
+    .columns.small-4.align-bottom
+      .tip-like class="#{"unliked" unless tip.liked? current_user}" data={"id": tip.id}
+        = link_to "", api_v1_tip_likes_path(tip), method: :patch, remote: true, class: "fi-like"
+        span class="likes-count"
+          = tip.likes.count
+      .tip-life_area
+        strong = tip.life_area.en_value
+
+    .columns.small-8
+      .tip-views.text-right
         .tip-anonym
-          i.fi-torsos-male-female
-          | Anon
-      - else
-        = tip.user.full_name
-      i.fi-eye
-      = tip.impressionist_count
-      .tip-date = tip.created_at
-    .tip-life_area
-      strong = tip.life_area.en_value
-  .tip-like class="#{"unliked" unless tip.liked? current_user}" data={"id": tip.id}
-    = link_to "", api_v1_tip_likes_path(tip), method: :patch, remote: true, class: "fi-like"
-    span class="likes-count"
-      = tip.likes.count
+          - if tip.anonym
+              i.fi-torsos-male-female
+              | Anon
+          - else
+            = tip.user.full_name
+        i.fi-eye
+        = tip.impressionist_count
+        .tip-date = tip.created_at
+
+
