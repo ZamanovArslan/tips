@@ -3,8 +3,11 @@ Rails.application.routes.draw do
   root to: "homepage#index"
   get :contact_us, to: "pages#contact_us"
 
+  resources :feedbacks, only: %i[create]
+
   namespace :my do
     resources :tips
+    resources :experiences
   end
 
   resources :tips, only: %i[show index] do
@@ -17,9 +20,5 @@ Rails.application.routes.draw do
         patch "/likes", to: "tips/likes#update", module: :tips
       end
     end
-  end
-
-  namespace :my do
-    resources :experiences
   end
 end

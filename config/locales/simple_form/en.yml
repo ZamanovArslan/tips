@@ -20,6 +20,10 @@ en:
       experience:
         experience: 31
         experience_ext: I'm living here already 31 years and know what I'm talking about
+      feedback:
+        email: some@example.com
+        title: On tip create I want...
+        message: For example...
     hints:
       tip:
         title: Something that you want share with people
@@ -36,3 +40,5 @@ en:
         anonym: Post as anonym?
       experience:
         experience_ext: Experience extended
+      feedback:
+        email: Your email for communcations

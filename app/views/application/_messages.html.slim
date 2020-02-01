@@ -1,5 +1,9 @@
 - flash.each do |type, content|
   div(class="callout #{type}" data-closable)
-    = content
+    - if content.is_a?(Hash)
+      - content.each do |key, value|
+        = "#{key} : #{value}"
+    - else
+      = content
     button.close-button(tabindex="0" aria-label="Dismiss alert" type="button" data-close)
       span aria-hidden="true" &times;

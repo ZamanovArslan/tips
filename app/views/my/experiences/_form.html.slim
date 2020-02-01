@@ -1,9 +1,7 @@
 = simple_form_for(experience, url: my_experiences_path) do |f|
-
-  = f.input :life_area_id, collection: life_areas, selected: life_areas.size
-
+  .form-inputs
+  = f.input :life_area_id, collection: life_areas, selected: life_areas.count
   = f.input :experience, as: :integer, required: true
-
   = f.input :experience_ext
 
   .form-actions

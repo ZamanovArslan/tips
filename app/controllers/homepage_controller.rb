@@ -35,6 +35,6 @@ class HomepageController < ApplicationController
   end
 
   def discussed_tip_today
-    ::OrderedQuery.new(:comments, Tip.by_today).first
+    ::OrderedQuery.new(:comments, Tip.all).limit(1)
   end
 end

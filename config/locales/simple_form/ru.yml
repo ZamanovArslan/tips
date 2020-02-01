@@ -14,6 +14,10 @@ en:
       experience:
         experience: 5
         experience_ext: С детства играю в футбол
+      feedback:
+        email: some@example.com
+        title: На создание совета я хочу, чтобы...
+        message: Например...
     hints:
       tip:
         title: Что-нибудь чем вы можете поделиться с другими людьми
