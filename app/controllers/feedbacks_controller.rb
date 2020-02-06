@@ -4,7 +4,8 @@ class FeedbacksController < ApplicationController
   def create
     if feedback.save
       FeedbackMailer.feedback(feedback_params).deliver
-      redirect_to :contact_us, flash: { success: "Your feedback successful sent" }
+
+      redirect_to :contact_us, flash: { success: t(".success") }
     else
       redirect_to :contact_us, flash: { alert: feedback.errors }
     end

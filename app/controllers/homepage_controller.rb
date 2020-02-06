@@ -13,21 +13,21 @@ class HomepageController < ApplicationController
   end
 
   def popular_tips_by_month
-    ::OrderedQuery.new(:views, Tip.by_last_month).limit(2)
+    ::OrderedQuery.new(:views, Tip.by_last_month).limit(2).decorate
   end
 
   def popular_tips_by_everytime
-    ::OrderedQuery.new(:views, Tip.all).limit(3)
+    ::OrderedQuery.new(:views, Tip.all).limit(3).decorate
   end
 
   def popular_tips_by_year
-    ::OrderedQuery.new(:views, Tip.by_last_year).limit(3)
+    ::OrderedQuery.new(:views, Tip.by_last_year).limit(3).decorate
   end
 
   def tips_by_popular_life_area
     top_life_area = ::OrderedQuery.new(:views, LifeArea.all).first
 
-    Tip.limit(2).where(life_area: top_life_area).order(created_at: :desc)
+    Tip.limit(2).where(life_area: top_life_area).order(created_at: :desc).decorate
   end
 
   def most_liked_tips
@@ -35,6 +35,6 @@ class HomepageController < ApplicationController
   end
 
   def discussed_tip_today
-    ::OrderedQuery.new(:comments, Tip.all).limit(1)
+    ::OrderedQuery.new(:comments, Tip.all).limit(1).decorate
   end
 end

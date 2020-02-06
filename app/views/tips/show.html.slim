@@ -1,8 +1,12 @@
 .row
-  h3 = tip.title
-  h4 = tip.description
-  h4 = tip.experience
-  h4 = tip.experience_ext
-  h4 = tip.life_area_id
-  = render tip.comments
-  = render "comments/form"
+  .column
+    .tip-show
+      h3 = tip.title
+      h4 = tip.description
+      h4 = tip.experience
+      h4 = tip.experience_ext
+      h4 = tip.life_area_id
+
+    .tip-comments
+      = render tip.comments
+    = render "comments/form"

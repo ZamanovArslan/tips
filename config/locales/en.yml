@@ -3,3 +3,5 @@ en:
     submit:
       feedback:
         create: "Send %{model}"
+      comment:
+        create: "Add %{model}"
