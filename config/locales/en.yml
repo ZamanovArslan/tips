@@ -5,3 +5,5 @@ en:
         create: "Send %{model}"
       comment:
         create: "Add %{model}"
+  permissions:
+    alert: You haven't enough permissions
