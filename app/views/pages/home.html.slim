@@ -2,21 +2,21 @@
   h2 = title("Home")
 .row.expanded
   .columns.medium-3
-    h4.home__top-title Popular tips by year
+    h4.home__top-title = t("home.popular_by_year")
     = render popular_tips_by_year
-    h4.home__top-title Popular tips by month
+    h4.home__top-title = t("home.popular_by_month")
     = render popular_tips_by_month
 
   .columns.medium-3
-    h4.home__top-title Popular tips by everytime
+    h4.home__top-title = t("home.popular_by_eveytime")
     = render popular_tips_by_everytime
 
   .columns.medium-3
-    h4.home__top-title Most liked tips
+    h4.home__top-title = t("home.most_liked")
     = render most_liked_tips
 
   .columns.medium-3
-    h4.home__top-title Top life area by today
+    h4.home__top-title = t("home.top_life_area")
     = render tips_by_popular_life_area
-    h4.home__top-title Discussed Today
+    h4.home__top-title = t("home.discussed_today")
     = render discussed_tip_today
