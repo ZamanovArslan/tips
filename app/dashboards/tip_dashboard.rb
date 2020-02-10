@@ -22,7 +22,7 @@ class TipDashboard < Administrate::BaseDashboard
     experience_ext: Field::Text,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-    likes_count: Field::Number,
+    likes_count: Field::Number
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -31,49 +31,49 @@ class TipDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
-  title
-  life_area
-  user
-  likes
-  comments
+    title
+    life_area
+    user
+    likes
+    comments
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
-  life_area
-  user
-  likes
-  comments
-  users
-  impressions
-  id
-  title
-  anonym
-  description
-  experience
-  experience_ext
-  created_at
-  updated_at
-  likes_count
+    life_area
+    user
+    likes
+    comments
+    users
+    impressions
+    id
+    title
+    anonym
+    description
+    experience
+    experience_ext
+    created_at
+    updated_at
+    likes_count
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-  life_area
-  user
-  likes
-  comments
-  users
-  impressions
-  title
-  anonym
-  description
-  experience
-  experience_ext
-  likes_count
+    life_area
+    user
+    likes
+    comments
+    users
+    impressions
+    title
+    anonym
+    description
+    experience
+    experience_ext
+    likes_count
   ].freeze
 
   # COLLECTION_FILTERS

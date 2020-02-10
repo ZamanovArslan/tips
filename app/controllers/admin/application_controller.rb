@@ -10,11 +10,9 @@ module Admin
     before_action :authenticate_user!, :authenticate_admin
 
     def authenticate_admin
-      begin
-        authorize(current_user, :admin_panel)
-      rescue 
-        redirect_back alert: t("permissions.alert"), fallback_location: :root 
-      end
+      authorize(current_user, :admin_panel)
+    rescue
+      redirect_back alert: t("permissions.alert"), fallback_location: :root
     end
 
     # Override this value to specify the number of elements to display at a time

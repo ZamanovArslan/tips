@@ -13,7 +13,7 @@ class CommentDashboard < Administrate::BaseDashboard
     id: Field::Number,
     text: Field::String,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime,
+    updated_at: Field::DateTime
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -22,30 +22,30 @@ class CommentDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
-  tip
-  user
-  id
-  text
+    tip
+    user
+    id
+    text
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
-  tip
-  user
-  id
-  text
-  created_at
-  updated_at
+    tip
+    user
+    id
+    text
+    created_at
+    updated_at
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-  tip
-  user
-  text
+    tip
+    user
+    text
   ].freeze
 
   # COLLECTION_FILTERS

@@ -32,7 +32,7 @@ class UserDashboard < Administrate::BaseDashboard
     locked_at: Field::DateTime,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-    full_name: Field::String,
+    full_name: Field::String
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -41,69 +41,69 @@ class UserDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
-  email
-  tips
-  experiences
-  comments
-  id
+    email
+    tips
+    experiences
+    comments
+    id
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
-  tips
-  experiences
-  comments
-  id
-  email
-  encrypted_password
-  reset_password_token
-  reset_password_sent_at
-  remember_created_at
-  confirmation_token
-  confirmed_at
-  confirmation_sent_at
-  unconfirmed_email
-  sign_in_count
-  current_sign_in_at
-  last_sign_in_at
-  current_sign_in_ip
-  last_sign_in_ip
-  failed_attempts
-  users
-  unlock_token
-  locked_at
-  created_at
-  updated_at
-  full_name
+    tips
+    experiences
+    comments
+    id
+    email
+    encrypted_password
+    reset_password_token
+    reset_password_sent_at
+    remember_created_at
+    confirmation_token
+    confirmed_at
+    confirmation_sent_at
+    unconfirmed_email
+    sign_in_count
+    current_sign_in_at
+    last_sign_in_at
+    current_sign_in_ip
+    last_sign_in_ip
+    failed_attempts
+    users
+    unlock_token
+    locked_at
+    created_at
+    updated_at
+    full_name
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-  tips
-  experiences
-  comments
-  email
-  encrypted_password
-  reset_password_token
-  reset_password_sent_at
-  remember_created_at
-  confirmation_token
-  confirmed_at
-  confirmation_sent_at
-  unconfirmed_email
-  sign_in_count
-  current_sign_in_at
-  last_sign_in_at
-  current_sign_in_ip
-  last_sign_in_ip
-  failed_attempts
-  users
-  unlock_token
-  locked_at
-  full_name
+    tips
+    experiences
+    comments
+    email
+    encrypted_password
+    reset_password_token
+    reset_password_sent_at
+    remember_created_at
+    confirmation_token
+    confirmed_at
+    confirmation_sent_at
+    unconfirmed_email
+    sign_in_count
+    current_sign_in_at
+    last_sign_in_at
+    current_sign_in_ip
+    last_sign_in_ip
+    failed_attempts
+    users
+    unlock_token
+    locked_at
+    full_name
   ].freeze
 
   # COLLECTION_FILTERS

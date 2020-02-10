@@ -15,7 +15,7 @@ class ExperienceDashboard < Administrate::BaseDashboard
     experience_ext: Field::Text,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-    life_area_id: Field::Number,
+    life_area_id: Field::Number
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -24,34 +24,34 @@ class ExperienceDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
-  user
-  life_area
-  id
-  experience
+    user
+    life_area
+    id
+    experience
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
-  user
-  life_area
-  id
-  experience
-  experience_ext
-  created_at
-  updated_at
-  life_area_id
+    user
+    life_area
+    id
+    experience
+    experience_ext
+    created_at
+    updated_at
+    life_area_id
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-  user
-  life_area
-  experience
-  experience_ext
-  life_area_id
+    user
+    life_area
+    experience
+    experience_ext
+    life_area_id
   ].freeze
 
   # COLLECTION_FILTERS
