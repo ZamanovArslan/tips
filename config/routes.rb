@@ -1,4 +1,17 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :users
+    resources :impressions
+    resources :tips
+    resources :comments
+    resources :likes
+    resources :experiences
+    resources :feedbacks
+    resources :life_areas
+
+    root to: "users#index"
+  end
+
   devise_for :users, controllers: { registrations: "users/registrations" }
   root to: "homepage#index"
   get :contact_us, to: "pages#contact_us"

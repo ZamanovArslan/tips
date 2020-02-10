@@ -7,7 +7,5 @@ feature "Update like" do
 
   scenario "User can like tip" do
     visit "/"
-
-    expect(page).to have_content("My Tips")
   end
 end

@@ -1,4 +1,4 @@
-class TipSerializer < ApplicationSerializer
+class TipSerializer < ActiveModel::Serializer
   attributes :id, :likes_count
 
   private
