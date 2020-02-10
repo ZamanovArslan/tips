@@ -13,3 +13,4 @@ vendor/ruby
 .env
 .pryrc
 .byebug_history
+rspec-examples.txt

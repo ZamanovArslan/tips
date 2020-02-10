@@ -1,7 +1,7 @@
 require "rails_helper"
 
 feature "Send site feedback" do
-  let(:user) { create :user, :not_confirmed }
+  let(:user) { build_stubbed :user, :not_confirmed }
   let(:message) { "smth" }
   let(:title) { "title" }
 
