@@ -32,7 +32,8 @@ class UserDashboard < Administrate::BaseDashboard
     locked_at: Field::DateTime,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-    full_name: Field::String
+    full_name: Field::String,
+    role: Field::Select.with_options(collection: User::ROLES)
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -46,6 +47,7 @@ class UserDashboard < Administrate::BaseDashboard
     experiences
     comments
     id
+    role
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -55,6 +57,7 @@ class UserDashboard < Administrate::BaseDashboard
     experiences
     comments
     id
+    role
     email
     encrypted_password
     reset_password_token
@@ -86,6 +89,7 @@ class UserDashboard < Administrate::BaseDashboard
     experiences
     comments
     email
+    role
     encrypted_password
     reset_password_token
     reset_password_sent_at
