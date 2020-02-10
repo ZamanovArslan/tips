@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200209175457) do
+ActiveRecord::Schema.define(version: 20200210194606) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,14 @@ ActiveRecord::Schema.define(version: 20200209175457) do
     t.bigint "user_id"
     t.index ["tip_id"], name: "index_comments_on_tip_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "companies", force: :cascade do |t|
+    t.string "name"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_companies_on_user_id"
   end
 
   create_table "experiences", force: :cascade do |t|
@@ -124,6 +132,8 @@ ActiveRecord::Schema.define(version: 20200209175457) do
     t.datetime "updated_at", null: false
     t.string "full_name"
     t.string "role", default: "user", null: false
+    t.bigint "company_id"
+    t.index ["company_id"], name: "index_users_on_company_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
@@ -131,10 +141,12 @@ ActiveRecord::Schema.define(version: 20200209175457) do
 
   add_foreign_key "comments", "tips"
   add_foreign_key "comments", "users"
+  add_foreign_key "companies", "users"
   add_foreign_key "experiences", "life_areas"
   add_foreign_key "experiences", "users"
   add_foreign_key "likes", "tips"
   add_foreign_key "likes", "users"
   add_foreign_key "tips", "life_areas"
   add_foreign_key "tips", "users"
+  add_foreign_key "users", "companies"
 end
