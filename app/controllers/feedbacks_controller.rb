@@ -1,6 +1,10 @@
 class FeedbacksController < ApplicationController
   expose :feedback
 
+  def index
+    render "pages/contact_us"
+  end
+
   def create
     if feedback.save
       FeedbackMailer.feedback(feedback_params).deliver
