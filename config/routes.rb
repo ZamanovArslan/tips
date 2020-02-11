@@ -14,8 +14,8 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { registrations: "users/registrations" }
   root to: "homepage#index"
-  get :contact_us, to: "feedbacks#index"
 
+  get :contact_us, to: "feedbacks#new"
   resources :feedbacks, only: %i[create]
 
   namespace :my do
