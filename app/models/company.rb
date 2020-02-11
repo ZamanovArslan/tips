@@ -1,4 +1,9 @@
 class Company < ApplicationRecord
-  belongs_to :owner, class_name: "User"
-  has_many :users, -> { where(company: self) }
+  has_many :company_memberships, dependent: :destroy
+  has_many :users, through: :company_memberships
+  has_many :tips
+
+  validates :name, uniqueness: { case_sensitive: false }
+
+  paginates_per 10
 end

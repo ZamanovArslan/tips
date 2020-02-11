@@ -1,0 +1,6 @@
+.card.card-1
+  .tip-title = company.name
+  = link_to my_company_path(company), method: :delete, data: { confirm: 'Are you sure?' }, class: "tip-delete" do
+    i.fi-trash
+  .hidden-text.text-right
+    .tip-date = company.created_at

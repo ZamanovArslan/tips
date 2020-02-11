@@ -1,4 +1,4 @@
-= simple_form_for(tip) do |f|
+= simple_form_for(tip, url: my_tips_path, method: :post) do |f|
 
   .form-inputs
     = f.input :title

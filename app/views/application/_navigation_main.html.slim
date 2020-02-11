@@ -4,4 +4,5 @@
     - if user_signed_in?
       = active_link_to t("navigation.my_tips"), my_tips_path, active: :exclusive, wrap_tag: :li
       = active_link_to t("navigation.my_experiences"), my_experiences_path, active: :exclusive, wrap_tag: :li
+      = active_link_to t("navigation.my_companies"), my_companies_path, active: :exclusive, wrap_tag: :li
     = active_link_to t("navigation.contact_us"), contact_us_path, active: :exclusive, wrap_tag: :li

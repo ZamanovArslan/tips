@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200210194606) do
+ActiveRecord::Schema.define(version: 20200211144112) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,7 +30,18 @@ ActiveRecord::Schema.define(version: 20200210194606) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_companies_on_name", unique: true
     t.index ["user_id"], name: "index_companies_on_user_id"
+  end
+
+  create_table "company_memberships", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "company_id"
+    t.string "role"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_company_memberships_on_company_id"
+    t.index ["user_id"], name: "index_company_memberships_on_user_id"
   end
 
   create_table "experiences", force: :cascade do |t|
@@ -105,6 +116,8 @@ ActiveRecord::Schema.define(version: 20200210194606) do
     t.bigint "user_id"
     t.bigint "life_area_id"
     t.integer "likes_count"
+    t.bigint "company_id"
+    t.index ["company_id"], name: "index_tips_on_company_id"
     t.index ["life_area_id"], name: "index_tips_on_life_area_id"
     t.index ["user_id"], name: "index_tips_on_user_id"
   end
@@ -142,10 +155,13 @@ ActiveRecord::Schema.define(version: 20200210194606) do
   add_foreign_key "comments", "tips"
   add_foreign_key "comments", "users"
   add_foreign_key "companies", "users"
+  add_foreign_key "company_memberships", "companies"
+  add_foreign_key "company_memberships", "users"
   add_foreign_key "experiences", "life_areas"
   add_foreign_key "experiences", "users"
   add_foreign_key "likes", "tips"
   add_foreign_key "likes", "users"
+  add_foreign_key "tips", "companies"
   add_foreign_key "tips", "life_areas"
   add_foreign_key "tips", "users"
   add_foreign_key "users", "companies"

@@ -19,11 +19,12 @@ Rails.application.routes.draw do
   resources :feedbacks, only: %i[create]
 
   namespace :my do
-    resources :tips
-    resources :experiences
+    resources :tips, only: %i[index create destroy]
+    resources :experiences, only: %i[index create destroy]
+    resources :companies, only: %i[index create destroy]
   end
 
-  resources :tips, only: %i[show index] do
+  resources :tips, only: %i[show] do
     resources :comments, only: %i[create]
   end
 

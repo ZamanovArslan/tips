@@ -5,4 +5,8 @@ class ApplicationPolicy
     @user = user
     @record = record.to_model
   end
+
+  def show?
+    user.admin?
+  end
 end

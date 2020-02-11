@@ -1,0 +1,12 @@
+.row.align-center
+  .medium-4.columns
+    h3
+      .tips-title Add comapny
+    = render "form"
+  .medium-6.columns.medium-offset-1
+    h3
+      .tips-title My companies
+    .tips-grid
+      = render companies
+    .tips-paginations = paginate companies
+  .medium-1.columns

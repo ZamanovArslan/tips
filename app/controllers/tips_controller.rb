@@ -1,4 +1,5 @@
 class TipsController < ApplicationController
+  include Pundit
   impressionist actions: [:show]
   expose :tip
 

@@ -5,6 +5,7 @@ class Tip < ApplicationRecord
   scope :by_last_year, -> { where("tips.created_at >= ?", Time.zone.today.change(month: 1, day: 1)) }
 
   belongs_to :life_area
+  belongs_to :company, optional: true
   belongs_to :user
 
   has_many :likes
