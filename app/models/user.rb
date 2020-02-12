@@ -25,7 +25,7 @@ class User < ApplicationRecord
 
     return user if user.admin?
 
-    CompanyMembership.find(company: Company.find_by(name: warden_conditions[:subdomain]),
-                            user: user).user
+    CompanyMembership.find_by(company: Company.find_by(name: warden_conditions[:subdomain]),
+                            user: user)&.user
   end
 end

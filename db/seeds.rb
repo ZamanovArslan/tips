@@ -10,3 +10,6 @@ end
 admin = User.new(role: :admin, email: ENV["ADMIN_EMAIL"], full_name: "Admin", password: ENV["ADMIN_PASSWORD"])
 admin.skip_confirmation!
 admin.save!
+
+# Create default company
+Company.create(name: Company::DEFAULT_NAME)

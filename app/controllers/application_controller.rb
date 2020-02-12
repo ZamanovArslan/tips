@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   include Authentication
   include Authorization
   include BulletHelper
+  include CurrentCompany
 
   before_action :set_locale
 
@@ -14,12 +15,7 @@ class ApplicationController < ActionController::Base
     I18n.locale = params[:locale] || I18n.default_locale
   end
 
-  def current_company
-    @current_company = Company.find_by("lower(name) = ?", request.subdomain)
-    if @current_company || request.subdomain.empty?
-      @current_company
-    else
-      raise ActionController::RoutingError.new('Not Found')
-    end
+  def current_account
+    CompanyMembership.find_by(user: current_user, company: current_company)
   end
 end

@@ -2,8 +2,8 @@ module My
   class TipsController < ApplicationController
     before_action :authenticate_user!
 
-    expose :tip
-    expose :tips, -> { current_user.tips.order(created_at: :desc).page(params[:page]).decorate }
+    expose :tip, parent: :current_account
+    expose :tips, :fetch_tips
     expose :life_areas, -> { LifeArea.all.order(created_at: :desc).pluck(:en_value, :id) }
 
     def create
@@ -21,6 +21,10 @@ module My
     def tip_params
       params.require(:tip).permit(:title, :anonym, :description, :experience, :experience_ext, :life_area_id)
             .merge(user_id: current_user.id)
+    end
+
+    def fetch_tips
+      current_account.tips.order(created_at: :desc).page(params[:page]).decorate
     end
   end
 end

@@ -1,9 +1,16 @@
 module Users
   class RegistrationsController < Devise::RegistrationsController
+    include CurrentCompany
+
     protected
 
     def update_resource(resource, params)
       resource.update_attributes(params)
+    end
+
+    def sign_up(resource_name, user)
+      super(resource_name, user)
+      CompanyMembership.create(user: user, company: current_company)
     end
 
     def account_update_params

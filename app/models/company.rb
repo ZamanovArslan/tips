@@ -1,4 +1,6 @@
 class Company < ApplicationRecord
+  DEFAULT_NAME = "default"
+  
   has_many :company_memberships, dependent: :destroy
   has_many :users, through: :company_memberships
   has_many :tips
