@@ -1,7 +1,7 @@
 class CompanyMembership < ApplicationRecord
   ROLES = %w[member owner].freeze
 
-  scope :owner, ->(user) { where(user: user, role: :owner) }
+  scope :owned_accounts, ->(user) { where(role: :owner, user: user) }
 
   belongs_to :user
   belongs_to :company

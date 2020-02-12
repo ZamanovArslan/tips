@@ -26,18 +26,16 @@ ActiveRecord::Schema.define(version: 20200211144112) do
   end
 
   create_table "companies", force: :cascade do |t|
-    t.string "name"
-    t.bigint "user_id"
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_companies_on_name", unique: true
-    t.index ["user_id"], name: "index_companies_on_user_id"
   end
 
   create_table "company_memberships", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "company_id"
-    t.string "role"
+    t.string "role", default: "member", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["company_id"], name: "index_company_memberships_on_company_id"
@@ -145,8 +143,6 @@ ActiveRecord::Schema.define(version: 20200211144112) do
     t.datetime "updated_at", null: false
     t.string "full_name"
     t.string "role", default: "user", null: false
-    t.bigint "company_id"
-    t.index ["company_id"], name: "index_users_on_company_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
@@ -154,7 +150,6 @@ ActiveRecord::Schema.define(version: 20200211144112) do
 
   add_foreign_key "comments", "tips"
   add_foreign_key "comments", "users"
-  add_foreign_key "companies", "users"
   add_foreign_key "company_memberships", "companies"
   add_foreign_key "company_memberships", "users"
   add_foreign_key "experiences", "life_areas"
@@ -164,5 +159,4 @@ ActiveRecord::Schema.define(version: 20200211144112) do
   add_foreign_key "tips", "companies"
   add_foreign_key "tips", "life_areas"
   add_foreign_key "tips", "users"
-  add_foreign_key "users", "companies"
 end

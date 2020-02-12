@@ -7,8 +7,11 @@ module My
     expose :life_areas, -> { LifeArea.all.order(created_at: :desc).pluck(:en_value, :id) }
 
     def create
-      tip.save
-      render :index
+      if tip.save
+        redirect_to my_tips_path
+      else
+        render :index
+      end
     end
 
     def destroy

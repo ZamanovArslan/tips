@@ -1,11 +1,17 @@
 module My
   class CompaniesController < ApplicationController
+    before_action :authenticate_user!
+
     expose :company
     expose_decorated :companies, :fetch_companies
 
     def create
-      CompanyMembership.create(user: current_user, company: company, role: :owner) if company.save
-      render :index
+      if company.save
+        CompanyMembership.create(user: current_user, company: company, role: :owner)
+        redirect_to my_companies_path, company: company
+      else
+        render :index
+      end
     end
 
     def destroy
@@ -20,7 +26,7 @@ module My
     end
 
     def fetch_companies
-      Company.where(id: current_user.company_memberships.owner(current_user).pluck(:id)).page(params[:page])
+      current_user.owned_companies.page(params[:page])
     end
   end
 end

@@ -13,6 +13,7 @@ class User < ApplicationRecord
   has_many :comments
   has_many :company_memberships
   has_many :companies, through: :company_memberships
+  has_many :owned_companies, through: :company_memberships, source: :company do -> { owned_accounts(self) } end
 
   def admin?
     role == "admin"

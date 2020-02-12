@@ -12,4 +12,7 @@ admin.skip_confirmation!
 admin.save!
 
 # Create default company
-Company.create(name: Company::DEFAULT_NAME)
+company = Company.create(name: Company::DEFAULT_NAME)
+
+CompanyMembership.create(user: admin, company: company, role: :owner)
+
