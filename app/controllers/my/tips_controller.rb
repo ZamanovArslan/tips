@@ -2,7 +2,7 @@ module My
   class TipsController < ApplicationController
     before_action :authenticate_user!
 
-    expose :tip, parent: :current_account
+    expose :tip, parent: :current_user
     expose :tips, :fetch_tips
     expose :life_areas, -> { LifeArea.all.order(created_at: :desc).pluck(:en_value, :id) }
 
@@ -27,7 +27,7 @@ module My
     end
 
     def fetch_tips
-      current_account.tips.order(created_at: :desc).page(params[:page]).decorate
+      current_user.tips.where(company: current_company).order(created_at: :desc).page(params[:page]).decorate
     end
   end
 end

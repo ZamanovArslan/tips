@@ -14,8 +14,4 @@ class ApplicationController < ActionController::Base
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
   end
-
-  def current_account
-    CompanyMembership.find_by(user: current_user, company: current_company)
-  end
 end

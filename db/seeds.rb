@@ -11,8 +11,3 @@ admin = User.new(role: :admin, email: ENV["ADMIN_EMAIL"], full_name: "Admin", pa
 admin.skip_confirmation!
 admin.save!
 
-# Create default company
-company = Company.create(name: Company::DEFAULT_NAME)
-
-CompanyMembership.create(user: admin, company: company, role: :owner)
-

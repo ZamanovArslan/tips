@@ -1,6 +1,4 @@
 class Company < ApplicationRecord
-  DEFAULT_NAME = "default".freeze
-
   has_many :company_memberships, dependent: :destroy
   has_many :users, through: :company_memberships
   has_many :owners_accounts, -> { owner }, class_name: "CompanyMembership"

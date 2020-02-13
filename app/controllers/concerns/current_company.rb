@@ -1,7 +1,10 @@
 module CurrentCompany
   def current_company
-    company_name = request.subdomain.presence || Company::DEFAULT_NAME
-    @current_company = Company.find_by("lower(name) = ?", company_name)
-    @current_company || (raise ActionController::RoutingError.new('Not Found'))
+    company_name = request.subdomain
+
+    return if company_name.blank?
+
+    company = Company.find_by("lower(name) = ?", company_name)
+    company || (raise ActionController::RoutingError.new('Not Found'))
   end
 end
