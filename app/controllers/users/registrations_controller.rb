@@ -9,8 +9,8 @@ module Users
     end
 
     def sign_up(resource_name, user)
-      super(resource_name, user)
       CompanyMembership.create(user: user, company: current_company, role: :member)
+      super(resource_name, user)
     end
 
     def account_update_params

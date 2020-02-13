@@ -5,6 +5,7 @@ module CurrentCompany
     return if company_name.blank?
 
     company = Company.find_by("lower(name) = ?", company_name)
-    company || (raise ActionController::RoutingError.new('Not Found'))
+    debugger
+    company || (raise ActionController::RoutingError, "Not Found")
   end
 end

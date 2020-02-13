@@ -35,7 +35,7 @@ feature "Sign In" do
     expect(page).to have_content("You have to confirm your email address before continuing.")
   end
 
-  scenario "Visitor can't signs in another subdomain" do
+  scenario "Visitor can't sign in another subdomain" do
     visit company_subdomain
 
     fill_form(:user, email: user.email, password: user.password)
