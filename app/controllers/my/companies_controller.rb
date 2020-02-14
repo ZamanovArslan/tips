@@ -8,7 +8,7 @@ module My
     def create
       if company.save
         CompanyMembership.create(user: current_user, company: company, role: :owner)
-        redirect_to my_companies_path, company: company
+        redirect_to my_companies_path
       else
         render :index
       end

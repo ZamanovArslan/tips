@@ -6,7 +6,15 @@ class ApplicationPolicy
     @record = record.to_model
   end
 
-  def show?
+  def create?
+    user.admin?
+  end
+
+  def update?
+    user.admin?
+  end
+
+  def destoy
     user.admin?
   end
 end

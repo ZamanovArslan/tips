@@ -23,7 +23,7 @@ module My
 
     def tip_params
       params.require(:tip).permit(:title, :anonym, :description, :experience, :experience_ext, :life_area_id)
-            .merge(user_id: current_user.id)
+            .merge(user_id: current_user.id, company: current_company)
     end
 
     def fetch_tips
