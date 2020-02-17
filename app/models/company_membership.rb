@@ -9,4 +9,5 @@ class CompanyMembership < ApplicationRecord
   has_many :tips, through: :user
 
   validates :role, inclusion: { in: ROLES }
+  validates :user_id, uniqueness: { scope: :company_id }
 end

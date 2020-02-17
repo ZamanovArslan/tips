@@ -22,10 +22,8 @@ class User < ApplicationRecord
 
   def self.find_for_authentication(warden_conditions)
     user = find_by(email: warden_conditions[:email])
+    company = Company.find_by(name: warden_conditions[:subdomain])
 
-    return user if user.admin? || warden_conditions[:subdomain].blank? || warden_conditions[:subdomain] == "www"
-
-    CompanyMembership.find_by(company: Company.find_by(name: warden_conditions[:subdomain]),
-                              user: user)&.user
+    return user if !company || CompanyPolicy.new(self, company).have_access?
   end
 end
