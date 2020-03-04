@@ -1,7 +1,7 @@
 .card.card-1
   .tip-title = link_to tip.title, tip_path(tip)
 
-  .tip-description = tip.description
+  .tip-description = tip.description.truncate(150)
 
   .row
     .columns.small-4.align-bottom

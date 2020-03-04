@@ -3,7 +3,7 @@
   = link_to my_tip_path(tip), method: :delete, data: { confirm: 'Are you sure?' }, class: "tip-delete" do
     i.fi-trash
 
-  .tip-description = tip.description
+  .tip-description = tip.description.truncate(150)
 
   .row
     .columns.small-4.align-bottom
