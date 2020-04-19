@@ -3,7 +3,7 @@ FROM ruby:2.5.8-alpine3.10
 ENV APP_HOME /tips
 
 RUN gem update --system && \
-    gem install bundler -v 2.1.4 --force
+    gem install bundler -v 1.17.3
 
 RUN apk add --update --no-cache build-base \
 	postgresql-dev \
