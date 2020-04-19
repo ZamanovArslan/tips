@@ -1,12 +1,28 @@
-FROM ruby:2.7.1
-RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
-RUN mkdir /tips
-WORKDIR /tips
+FROM ruby:2.5.8-alpine3.10
 
-COPY Gemfile Gemfile.lock ./
+ENV APP_HOME /tips
 
-RUN bin/setup
+RUN gem update --system && \
+    gem install bundler -v 2.1.4 --force
 
-COPY . /tips
+RUN apk add --update --no-cache build-base \
+	postgresql-dev \
+	git \
+	nodejs \
+	less \
+	curl \
+	tzdata
+
+RUN mkdir $APP_HOME
+
+WORKDIR $APP_HOME
+
+ADD Gemfile* $APP_HOME/
+
+RUN bundle --version
+
+RUN bundle check || bundle install
+
+ADD . $APP_HOME
 
 ENTRYPOINT ["./entrypoints/docker-entrypoint.sh"]

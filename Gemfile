@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby "2.7.1"
+ruby "2.5.8"
 
 gem "pg"
 gem "rails", "5.1.6.2"
@@ -56,7 +56,6 @@ end
 
 group :test do
   gem "capybara"
-  gem "codeclimate-test-reporter", require: false
   gem "database_cleaner"
   gem "email_spec"
   gem "formulaic"
