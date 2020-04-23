@@ -3,20 +3,20 @@
 .row.expanded
   .columns.medium-3
     h4.home__top-title = t("home.popular_by_year")
-    = render popular_tips_by_year
+    = render popular_tips_by_year, cached: true
     h4.home__top-title = t("home.popular_by_month")
-    = render popular_tips_by_month
+    = render popular_tips_by_month, cached: true
 
   .columns.medium-3
     h4.home__top-title = t("home.popular_by_eveytime")
-    = render popular_tips_by_everytime
+    = render popular_tips_by_everytime, cached: true
 
   .columns.medium-3
     h4.home__top-title = t("home.most_liked")
-    = render most_liked_tips
+    = render most_liked_tips, cached: true
 
   .columns.medium-3
     h4.home__top-title = t("home.top_life_area")
-    = render tips_by_popular_life_area
+    = render tips_by_popular_life_area, cached: true
     h4.home__top-title = t("home.discussed_today")
-    = render discussed_tip_today
+    = render discussed_tip_today, cached: true
